@@ -2,6 +2,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
   form: document.querySelector('.form'),
+  btn: document.querySelector('.submit')
 };
 
 refs.form.addEventListener('submit', onSubmitClick);
@@ -27,6 +28,8 @@ function onSubmitClick(event) {
       });
     delay += step;
   }
+  refs.btn.disabled = true;
+
 }
 
 function createPromise(position, delay) {
