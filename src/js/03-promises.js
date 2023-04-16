@@ -25,25 +25,10 @@ function onSubmitClick(event) {
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, { useIcon: false });
       })
-      // delay += step;
-      // .finally(() => form.reset());
-      .finally(() => form.reset());
+    delay += step;
   }
 
-  // for (let i = 0; i < amount; i++) {
-  //   const position = i + 1;
-  //   const delay = firstDelay + i * delaySteep;
-  //   createPromise(position, delay)
-  //     .then(({ position, delay }) => {
-  //       console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-  //       Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-  //     })
-  //     .catch(({ position, delay }) => {
-  //       console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-  //       Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-  //     })
-  //     .finally(() => form.reset());
-  // }
+  refs.form.reset();
 
   function createPromise(position, delay) {
     const shouldResolve = Math.random() > 0.3;
